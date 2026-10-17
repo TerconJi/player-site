@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>纪德康｜湖北省残疾人体育协会</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft Yahei", "PingFang SC", "SimHei", sans-serif;
+  }
+
+  :root {
+    --gov-red: #b00020;
+    --gov-blue: #0055aa;
+    --gov-blue-dark: #003f7f;
+    --gov-gray: #666;
+    --gov-bg: #f4f6f8;
+    --gov-border: #d9d9d9;
+    --text: #222;
+    --text-gray: #555;
+  }
+
+  body {
+    background: var(--gov-bg);
+    color: #444;
+  }
+
+  a {
+    color: var(--gov-blue);
+    text-decoration: none;
+  }
+
+  /* 顶部政务头部 */
+  .gov-top {
+    background: #fff;
+    border-bottom: 3px solid var(--gov-red);
+  }
+
+  .gov-top-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .disability-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .org-text h1 {
+    font-size: 24px;
+    color: var(--gov-blue-dark);
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .org-text p {
+    font-size: 14px;
+    color: var(--gov-gray);
+  }
+
+  /* 主导航 */
+  .gov-nav {
+    background: var(--gov-blue);
+  }
+
+  .gov-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .gov-nav a {
+    display: block;
+    padding: 14px 22px;
+    color: #fff;
+    font-size: 15px;
+  }
+
+  .gov-nav a:hover,
+  .gov-nav a.active {
+    background: var(--gov-red);
+  }
+
+  /* 面包屑 */
+  .breadcrumb {
+    max-width: 1200px;
+    margin: 18px auto 0;
+    padding: 0 24px;
+    font-size: 13px;
+    color: var(--gov-gray);
+  }
+
+  .breadcrumb a {
+    color: var(--gov-blue);
+  }
+
+  /* 主体 */
+  .container {
+    max-width: 1200px;
+    margin: 24px auto 40px;
+    padding: 0 24px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* 左侧信息卡 */
+  .info-card {
+    background: #fff;
+    border: 1px solid var(--gov-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .avatar {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    background: #eee;
+  }
+
+  .info-list {
+    padding: 18px;
+  }
+
+  .info-item {
+    display: flex;
+    padding: 11px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    font-size: 15px;
+  }
+
+  .info-item:last-child {
+    border-bottom: none;
+  }
+
+  .info-item label {
+    width: 96px;
+    color: var(--gov-gray);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .info-item span {
+    color: var(--text);
+  }
+
+  /* 右侧内容卡 */
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--gov-border);
+    border-radius: 4px;
+    padding: 30px;
+  }
+
+  .page-title {
+    font-size: 26px;
+    color: var(--text);
+    margin-bottom: 10px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--gov-red);
+  }
+
+  .section-title {
+    font-size: 20px;
+    color: var(--gov-blue-dark);
+    margin: 24px 0 14px;
+    padding-left: 12px;
+    border-left: 5px solid var(--gov-red);
+  }
+
+  p {
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 14px;
+    font-size: 16px;
+    text-indent: 2em;
+  }
+
+  /* 荣誉列表 */
+  .honor-list {
+    margin-top: 8px;
+    padding-left: 20px;
+  }
+
+  .honor-item {
+    position: relative;
+    padding: 10px 14px 10px 34px;
+    margin-bottom: 10px;
+    background: var(--gov-bg);
+    border-left: 4px solid var(--gov-blue);
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .honor-item::before {
+    content: "★";
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    color: var(--gov-red);
+    font-size: 14px;
+  }
+
+  /* 底部 */
+  footer {
+    background: #2b2b2b;
+    color: #aaa;
+    padding: 28px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  footer a {
+    color: #ddd;
+    margin: 0 8px;
+  }
+  .accessibility-img{
+    height:24px;
+    vertical-align:middle;
+    margin:0 6px;
+  }
+
+  /* 响应式 */
+  @media (max-width: 900px) {
+    .row {
+      grid-template-columns: 1fr;
+    }
+
+    .gov-top-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .gov-nav-inner {
+      overflow-x: auto;
+    }
+
+    .gov-nav a {
+      white-space: nowrap;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <!-- 顶部机构标识区 -->
+  <div class="gov-top">
+    <div class="gov-top-inner">
+      <div class="org-text">
+        <h1>湖北省残疾人体育协会</h1>
+        <p>省队风采</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主导航 -->
+  <nav class="gov-nav">
+    <div class="gov-nav-inner">
+      <a href="#">首页</a>
+      <a href="#">机构概况</a>
+      <a href="#">政策信息</a>
+      <a href="#">残疾人体育</a>
+      <a href="#">赛事活动</a>
+      <a href="#" class="active">省队风采</a>
+      <a href="#">资料下载</a>
+      <a href="#">联系我们</a>
+    </div>
+  </nav>
+
+  <!-- 面包屑 -->
+  <div class="breadcrumb">
+    当前位置：<a href="#">首页</a> &gt; <a href="#">残疾人体育</a> &gt; <a href="#">省队风采</a> &gt; 运动员详情
+  </div>
+
+  <!-- 主体内容 -->
+  <div class="container">
+    <div class="row">
+      <!-- 左侧：头像与基础信息 -->
+      <div class="info-card">
+        <img class="avatar" src="./photo.png" alt="纪德康" />
+        <div class="info-list">
+          <div class="info-item">
+            <label>姓名</label>
+            <span>纪德康</span>
+          </div>
+          <div class="info-item">
+            <label>项目</label>
+            <span>残疾人羽毛球 SU5级</span>
+          </div>
+          <div class="info-item">
+            <label>身份</label>
+            <span>湖北省残疾人羽毛球队 注册在役运动员</span>
+          </div>
+          <div class="info-item">
+            <label>教练</label>
+            <span>袁沼</span>
+          </div>
+          <div class="info-item">
+            <label>籍贯</label>
+            <span>湖北大冶</span>
+          </div>
+          <div class="info-item">
+            <label>学历</label>
+            <span>高中</span>
+          </div>
+          <div class="info-item">
+            <label>性别</label>
+            <span>男</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：运动生涯与赛事荣誉 -->
+      <div class="content-card">
+        <h2 class="page-title">纪德康 运动员详情</h2>
+
+        <h3 class="section-title">运动生涯</h3>
+        <p>
+          纪德康，男，湖北省残疾人羽毛球队SU5级在役运动员，2026年正式进入省残疾人羽毛球队集训，师从省队主教练袁沼。右手肢体残疾，左手持拍，主攻双打项目。
+        </p>
+
+        <h3 class="section-title">赛事荣誉（省级及以上）</h3>
+        <div class="honor-list">
+          <div class="honor-item">湖北省第十七届运动会群众体育类（残疾人组）“楚能杯”羽毛球比赛SU5男子双打第五名</div>
+          <div class="honor-item">湖北省第十七届运动会群众体育类（残疾人组）“楚能杯”羽毛球比赛SU5男子单打十强</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <footer>
+    <p>湖北省残疾人联合会 湖北省残疾人体育协会</p>
+    <p>版权所有 | 鄂ICP备13002354号 | <img class="accessibility-img" src="http://www.hbdpf.org.cn/images/slh.jpg" alt="适老化无障碍浏览" /> | 地址：湖北省武汉市武昌区武昌付家坡一路25号</p>
+    <p>联系我们</p>
+  </footer>
+</body>
+</html>
